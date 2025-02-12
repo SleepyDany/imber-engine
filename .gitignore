@@ -1,0 +1,11 @@
+# IDE
+.idea/
+
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+
+# Binaries
+Binaries/
+Intermediate/
