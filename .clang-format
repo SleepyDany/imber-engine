@@ -16,3 +16,6 @@ AlignAfterOpenBracket: DontAlign
 AlignEscapedNewlines: Left
 AllowShortFunctionsOnASingleLine: None
 PointerAlignment: Left
+BinPackParameters: false
+BinPackArguments: false
+AllowAllArgumentsOnNextLine: true
