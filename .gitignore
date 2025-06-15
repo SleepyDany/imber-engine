@@ -6,12 +6,9 @@
 *.vcxproj
 *.vcxproj.filters
 
-# Binaries and obj files
+# Binary and obj files
 */Binaries/
 Build/
 
-# Libs
-ThirdParty/
-
-# Examples
-Cookbook/
+# Developer's personal dir
+Dev/
