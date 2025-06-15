@@ -6,6 +6,12 @@
 *.vcxproj
 *.vcxproj.filters
 
-# Binaries
-Binaries/
-Intermediate/
+# Binaries and obj files
+*/Binaries/
+Build/
+
+# Libs
+ThirdParty/
+
+# Examples
+Cookbook/

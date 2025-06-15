@@ -16,3 +16,9 @@ AlignAfterOpenBracket: DontAlign
 AlignEscapedNewlines: Left
 AllowShortFunctionsOnASingleLine: None
 PointerAlignment: Left
+BinPackParameters: false
+BinPackArguments: false
+AllowAllArgumentsOnNextLine: true
+SeparateDefinitionBlocks: Always
+EmptyLineBeforeAccessModifier: LogicalBlock
+BreakConstructorInitializers: BeforeComma
