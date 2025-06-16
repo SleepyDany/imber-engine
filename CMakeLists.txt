@@ -48,6 +48,8 @@ if (CMAKE_GENERATOR STREQUAL "Visual Studio 17 2022")
     # set(CMAKE_VS_INCLUDE_EXTERNAL_FILES ON)
 
     set(VS_DEBUGGER_WORKING_DIRECTORY ${IMBER_BINARY_DIR})
+    # TODO: setup startup project
+    # set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT Playground)
 endif()
 
 add_subdirectory(${IMBER_SOURCE_DIR})

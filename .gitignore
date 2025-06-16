@@ -7,7 +7,7 @@
 *.vcxproj.filters
 
 # Binary and obj files
-*/Binaries/
+Binaries/
 Build/
 
 # Developer's personal dir

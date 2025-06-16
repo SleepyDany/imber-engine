@@ -18,10 +18,12 @@ file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS
 
 add_executable(Playground)
 
+# TODO: diff Public/Private source files
 target_sources(Playground
-    PUBLIC
-    ${SOURCE_FILES}
+    PUBLIC ${SOURCE_FILES}
 )
+
+# TODO: add Public/Private include dirs
 
 foreach(PROJECT_CONFIG IN LISTS CMAKE_CONFIGURATION_TYPES)
     string(TOUPPER ${PROJECT_CONFIG} PROJECT_UPPER_CONFIG)
@@ -35,6 +37,5 @@ foreach(PROJECT_CONFIG IN LISTS CMAKE_CONFIGURATION_TYPES)
 endforeach()
 
 target_link_libraries(Playground
-    PUBLIC
-    Imber::Engine
+    PUBLIC Imber::Engine
 )
