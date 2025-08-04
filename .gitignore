@@ -1,11 +1,14 @@
 # IDE
 .idea/
-
 .vs/
+
 *.sln
 *.vcxproj
 *.vcxproj.filters
 
-# Binaries
+# Binary and obj files
 Binaries/
-Intermediate/
+Build/
+
+# Developer's personal dir
+Dev/

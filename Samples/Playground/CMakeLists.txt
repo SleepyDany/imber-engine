@@ -1,0 +1,41 @@
+cmake_minimum_required(VERSION 3.28)
+
+set(SAMPLE_ROOT_DIR ${CMAKE_CURRENT_LIST_DIR}/)
+set(SAMPLE_SOURCE_DIR ${SAMPLE_ROOT_DIR}/Source)
+set(SAMPLE_BINARY_DIR ${IMBER_BINARY_DIR})
+
+# Visual Studio configuration
+if (CMAKE_GENERATOR STREQUAL "Visual Studio 17 2022")
+    set(VS_DEBUGGER_WORKING_DIRECTORY ${SAMPLE_BINARY_DIR})
+endif()
+
+file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS
+    LIST_DIRECTORIES false
+    "${SAMPLE_SOURCE_DIR}/*.h"
+    "${SAMPLE_SOURCE_DIR}/*.inl"
+    "${SAMPLE_SOURCE_DIR}/*.cpp"
+)
+
+add_executable(Playground)
+
+# TODO: diff Public/Private source files
+target_sources(Playground
+    PUBLIC ${SOURCE_FILES}
+)
+
+# TODO: add Public/Private include dirs
+
+foreach(SAMPLE_CONFIG IN LISTS CMAKE_CONFIGURATION_TYPES)
+    string(TOUPPER ${SAMPLE_CONFIG} SAMPLE_UPPER_CONFIG)
+    set_target_properties(Playground
+        PROPERTIES
+        PDB_OUTPUT_DIRECTORY_${SAMPLE_UPPER_CONFIG} ${SAMPLE_BINARY_DIR}/${SAMPLE_CONFIG}
+        RUNTIME_OUTPUT_DIRECTORY_${SAMPLE_UPPER_CONFIG} ${SAMPLE_BINARY_DIR}/${SAMPLE_CONFIG}
+        LIBRARY_OUTPUT_DIRECTORY_${SAMPLE_UPPER_CONFIG} ${SAMPLE_BINARY_DIR}/${SAMPLE_CONFIG}
+        ARCHIVE_OUTPUT_DIRECTORY_${SAMPLE_UPPER_CONFIG} ${SAMPLE_BINARY_DIR}/${SAMPLE_CONFIG}
+    )
+endforeach()
+
+target_link_libraries(Playground
+    PUBLIC Imber::Engine
+)
