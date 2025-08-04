@@ -8,4 +8,5 @@ Feel free to comment/use/critisize.
 To generate solution files you will need CMake 3.28 version and greater.
 
 * Run GenerateProjectFiles.bat
-* Open Build/Imber.sln
+    * --clean - delete Build/ dir and regenerate project
+* Open Build/ImberEngine.sln
