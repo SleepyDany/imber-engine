@@ -1,9 +1,15 @@
 //
 #include "Core.h"
 
+#include <format>
 #include <iostream>
 
-void SayHello()
+void Test::Do()
 {
-    std::cout << "Hello World!\n";
+	std::cout << std::format("Do");
+}
+
+void Test::StaticDo()
+{
+	std::cout << std::format("StaticDo");
 }

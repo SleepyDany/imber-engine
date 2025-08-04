@@ -2,6 +2,11 @@ cmake_minimum_required(VERSION 3.28)
 
 set(ENGINE_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/)
 
+configure_file(${IMBER_TOOLS_DIR}/CMake/Templates/EngineDefinitions.tmpl
+    ${ENGINE_SOURCE_DIR}/Core/Public/EngineDefinitions.gen.h
+    @ONLY
+)
+
 file(GLOB_RECURSE MODULE_FILES CONFIGURE_DEPENDS
     LIST_DIRECTORIES true
     "${ENGINE_SOURCE_DIR}/*.h"
@@ -26,11 +31,12 @@ foreach(ITEM IN LISTS MODULE_FILES)
     endif()
 endforeach()
 
-add_library(Engine STATIC)
+add_library(Engine ${IMBER_LIB})
+GenerateApiExport(Engine ENGINE_API ${ENGINE_SOURCE_DIR}/Core/Public)
 
 # TODO: diff Public/Private source files
 target_sources(Engine
-    PUBLIC ${MODULE_SOURCE_FILES}
+    PRIVATE ${MODULE_SOURCE_FILES}
 )
 
 target_include_directories(Engine

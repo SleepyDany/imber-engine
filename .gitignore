@@ -1,7 +1,7 @@
 # IDE
 .idea/
-
 .vs/
+
 *.sln
 *.vcxproj
 *.vcxproj.filters
